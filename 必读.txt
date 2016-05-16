@@ -1,0 +1,3 @@
+本地使用sublimeserver来模拟服务器启动项目
+默认端口号为8080
+启动方式为：tools>sublimeserver>stop/start

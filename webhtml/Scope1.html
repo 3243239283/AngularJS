@@ -13,7 +13,8 @@
 		<div ng-controller="ListCtrl">
 			<ol>
 				<li ng-repeat="name in names">
-					{{name}} from {{names}}
+				<!-- 作用域是有层次结构的，如果在最内层的作用域上找不到一个属性，那么它就会依次往上遍历，一直到根作用域为止。 -->
+					{{name}} from {{deparment}}
 				</li>
 			</ol>
 		</div>

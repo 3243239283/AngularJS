@@ -12,8 +12,31 @@
 		<p>{{greeting.text}},Angular</p>
 	</div>
 
+	<div>
+		<input type="text" ng-model="person.name" placeholder="Your name">
+		<h1>Hello,{{person.name}}</h1>
+	</div>
+
+	<div ng-controller="MyControllor">
+		<h5>hello,{{clock.now}}!</h5>
+	</div>
+
 
 
 	<script src="../plugin/angular/angular-1.3.0.js"></script>
+	<script type="text/javascript">
+		function MyControllor($scope,$timeout){
+			$scope.clock={
+				now:new Date()
+			};
+			var updateClock=function(){
+				$scope.clock.now=new Date()
+			};
+			setInterval(function(){
+				$scope.$apply(updateClock);
+			},1000);
+			updateClock();
+		};
+	</script>
 </body>
 </html>

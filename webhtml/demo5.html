@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>控制器</title>
+	<script src="../plugin/angular/angular-1.3.0.js"></script>
+	<script src="../js/demo5.js"></script>
+</head>
+<body>
+	<div class="box" ng-controller="FirstController">
+		<button type="button" ng-click="add(1)">ADD</button>
+		<button type="button" ng-click="subtract(1)">Subtarct</button>
+		<h4>{{message.age}}</h4>
+	</div>
+
+	<!--控制器嵌套:根据原型继承机制，我们可以在子作用域中访问父作用域$scope对象-->
+	<div class="parent" ng-controller="parent">
+		<h1>{{person}}</h1>
+		<div class="child" ng-controller="child">
+			{{person.name}}
+		</div>
+	</div>
+
+</body>
+</html>

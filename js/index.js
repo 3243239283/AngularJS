@@ -14,7 +14,9 @@
 var hello=angular.module('hello',[]);
 hello.controller('HelloAngular',function($scope){
 	$scope.greeting={
-		text:'Hello'
+		text:'Hello',
+		pp:2,
+		ff:5
 	};
 });
 

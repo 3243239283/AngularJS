@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>指令</title>
+	<!-- 自定义样式 -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../plugin/angular/angular-1.3.0.js"></script>
+	<script src="../js/demo8.js"></script>
+</head>
+<body>
+	<h3>指令:创建自定义html元素和属性</h3>
+	<p>
+		replace:true		用自定义元素取代指令声明,而不是嵌套在其内部。
+		<img src="../img/p1.png" alt="">
+		<img src="../img/p2.png" alt="">
+	</p>	
+	<my-directive></my-directive>
+	<div my-directive></div>
+	<!-- ng-init 指令初始化应用程序数据，这个不常使用。通常情况下，不使用 ng-init。您将使用一个控制器或模块来代替它。 -->
+	<h1 ng-controller="greet">
+		the greeting is {{greeting.txt}}
+	</h1>
+
+	<p>we can access: {{rootProperty}}</p>
+	<div ng-controller="ParentController">
+		<p>we can access: {{rootProperty}} and {{parentProperty}}</p>
+		<div ng-controller="ChildController">
+			<p>
+				we can access: {{rootProperty}} and {{parentProperty}} and {{childProperty}}。
+			</p>
+			<p>{{fullSentenceFromChild}}</p>
+		</div>
+	</div>
+</body>
+</html>

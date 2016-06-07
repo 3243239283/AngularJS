@@ -6,3 +6,11 @@ p{text-indent:1em;}
 .form ul li label{width: 125px;display: inline-block;text-align: left;}
 .form ul li input{width: 260px;height: 28px;padding: 0;margin: 0;border: 1px solid #767676;}
 #btn{width:50px;margin: 20px 200px 0;}
+
+
+
+.odd{background-color:blue;}
+.even{background-color:red;}
+.red{background-color: red;}
+
+

@@ -14,9 +14,11 @@
 		replace:true		用自定义元素取代指令声明,而不是嵌套在其内部。
 		<img src="../img/p1.png" alt="">
 		<img src="../img/p2.png" alt="">
-	</p>	
-	<my-directive></my-directive>
-	<div my-directive></div>
+	</p>
+	<!-- 自定义指令 -->
+	<div my-directive my-url="http://baidu.com" my-link-text="点击"></div>
+	<div run></div>
+
 	<!-- ng-init 指令初始化应用程序数据，这个不常使用。通常情况下，不使用 ng-init。您将使用一个控制器或模块来代替它。 -->
 	<h1 ng-controller="greet">
 		the greeting is {{greeting.txt}}

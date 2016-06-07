@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>内置指令</title>
+	<script src="../plugin/angular/angular-1.3.0.js"></script>
+	<script src="../js/demo9.js"></script>
+	<!-- 自定义样式 -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+	<div ng-controller="SomeController">
+		{{someModel.someValue}}
+		<button ng-click="someAction()">点击1</button>
+		<div ng-controller="ChildController">
+			{{someModel.someValue}}
+			<button ng-click="ChildAction()">点击2</button>
+		</div>
+	</div>
+	
+	<!-- ng-if指令可以根据表达式的值在DOM中生成或移除一个元素 -->
+	<div ng-if="2+2===5">false</div>
+	<div ng-if="2+2===4">true</div>
+
+	<!-- ng-repeat用来遍历一个集合或为集合中的每个元素生成一个模板实例 -->
+	<ul ng-controller="PeopleController">
+		<li ng-repeat="person in people" ng-class="{even:!$even,odd:!$odd}">
+			{{person.name}} lives in {{person.city}}
+		</li>
+	</ul>
+
+	<!-- ng-bind:通过指令实现视图中的{{ }}的模板语法,同时可以避免未渲染元素闪烁 -->
+	<div ng-init="greeting='HelloWorld'">
+		<p ng-bind="greeting" ng-cloak></p>
+	</div>
+
+	<!-- ng-bind-template:在视图中绑定多个表达式 -->
+	<div ng-bind-template="{{people.name}} from {{people.city}}" ng-controller="myCtrl"></div>
+
+	<!-- 1、ng-show:的值为true时元素显示  2、ng-hide:返回的值为true时元素隐藏 -->
+	<div ng-show="2+2==5">2+2!=5 dont show</div>
+	<div ng-show="2+2==4">2+2=4 do show</div>
+	<div ng-hide="2+2==5">2+2!=5 dont hide</div>
+	<div ng-hide="2+2==4">2+2=4 do hide</div>
+	
+	<!-- ng-change:表单输入变化时计算给定表达式的值,因为要处理表单输入,所以这个指令要和ng-model联合使用 -->
+	<div ng-controller="EquationController">
+		<input type="text" ng-model="equation.x" ng-change="change()" />
+		<code>{{equation.output}}</code>
+	</div>
+
+	<!-- ng-form:在一个表单内部嵌套另一个表单。普通的<form>标签不允许嵌套，但ng-form可以。 -->
+
+	<!-- ng-click:指定一个元素被点击时调用的方法或表达式 -->
+	<div ng-controller="CountController">
+		<button ng-click="increment()" ng-init="count=0">递增</button>
+		count: {{count}}
+		<button ng-click="decrement()">递减</button>
+	</div>
+
+	<!-- ng-select:将数据同html的<select>元素进行绑定 -->
+	<div ng-controller="CityController">
+		<select ng-model="city" ng-options="city.name for city in cities">
+			<option value="">Choose City</option>
+		</select>
+		Best City:{{city.name}}
+	</div>
+
+	<!-- ng-submit:将表达式同onsubmit事件进行绑定 -->
+
+	<!-- ng-class:动态设置元素的类 -->
+	<div ng-controller="LotteryController">
+		<div ng-class="{red:x>5}" ng-if="x>5">你赢了!</div>
+		<button ng-click="x=generateNumber()" ng-init="x=0">抽奖号码</button>
+		<p>Number is: {{x}}</p>
+	</div>
+</body>
+</html>
